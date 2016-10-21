@@ -1,0 +1,8 @@
+locations:
+  /aws_folder1/:
+    - /path1
+    - /path2
+  /aws_folder2/:
+    - /path3
+    - /path4
+    
