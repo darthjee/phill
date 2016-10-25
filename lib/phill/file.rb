@@ -1,6 +1,9 @@
 require 'zlib'
+require 'archive/tar/minitar'
 
 class Phill::File
+  include Archive::Tar
+
   attr_reader :path
 
   def initialize(path)
@@ -8,22 +11,17 @@ class Phill::File
   end
 
   def compress
-    gzip_file.write(data)
-    gzip_file.close
+    Minitar.pack(path, gzip_file)
   end
 
   private
 
   def compressed_path
-    @zip_name ||= "#{path}.gz"
+    @zip_name ||= "#{path}.tar.gz"
   end
 
   def gzip_file
     @gzip_file ||= Zlib::GzipWriter.open(compressed_path)
-  end
-
-  def data
-    @data ||= File.read(path)
   end
 end
 
