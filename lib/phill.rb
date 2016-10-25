@@ -5,6 +5,7 @@ class Phill
   require './lib/phill/configurable'
   require './lib/phill/aws_client'
   require './lib/phill/location'
+  require './lib/phill/file'
 
   class << self
     include Phill::Configurable
