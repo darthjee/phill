@@ -12,3 +12,5 @@ class Phill
     end
   end
 end
+
+require './lib/phill/loader'
