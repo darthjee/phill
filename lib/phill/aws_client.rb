@@ -1,9 +1,6 @@
 require 'recursive-open-struct'
-require 'yaml'
 
-class Phill
-  require './lib/phill/aws_client'
-
+class Phill::AwsClient
   class << self
     attr_reader :config
 
@@ -12,5 +9,3 @@ class Phill
     end
   end
 end
-
-require './lib/phill/loader'
