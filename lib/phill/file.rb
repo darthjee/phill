@@ -11,6 +11,13 @@ class Phill::File
     @path = path
   end
 
+  def process
+    compress
+    File.open(path, 'w').close
+  end
+
+  private
+
   def compress
     Minitar.pack(path, gzip_file)
   end
