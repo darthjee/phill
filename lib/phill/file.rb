@@ -23,11 +23,11 @@ class Phill::File
   end
 
   def compressed_path
-    @zip_name ||= "#{path}-#{date_string}.tar.gz"
+    @compressed_path ||= "#{path}-#{date_string}.tar.gz"
   end
 
   def date_string
-    Time.now.strftime '%Y%m%d'
+    @date_string ||= Time.now.strftime '%Y%m%d'
   end
 
   def gzip_file

@@ -13,6 +13,10 @@ class Phill
     def locations
       @locations ||= config.locations.map { |l|  Location.new(l) }
     end
+
+    def process
+      locations.each(&:process)
+    end
   end
 end
 
