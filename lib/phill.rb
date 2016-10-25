@@ -2,13 +2,16 @@ require 'recursive-open-struct'
 require 'yaml'
 
 class Phill
+  require './lib/phill/configurable'
   require './lib/phill/aws_client'
+  require './lib/phill/location'
+  require './lib/phill/file'
 
   class << self
-    attr_reader :config
+    include Phill::Configurable
 
-    def config=(hash)
-      @config = RecursiveOpenStruct.new(hash)
+    def locations
+      @locations ||= config.locations.map { |l|  Location.new(l) }
     end
   end
 end
