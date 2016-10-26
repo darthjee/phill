@@ -2,10 +2,11 @@ require 'recursive-open-struct'
 require 'yaml'
 
 class Phill
-  require './lib/phill/configurable'
-  require './lib/phill/aws_client'
-  require './lib/phill/location'
-  require './lib/phill/file'
+  require 'phill/version'
+  require 'phill/configurable'
+  require 'phill/aws_client'
+  require 'phill/location'
+  require 'phill/file'
 
   class << self
     include Phill::Configurable
@@ -20,5 +21,3 @@ class Phill
     end
   end
 end
-
-require './lib/phill/loader'
