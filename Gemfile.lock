@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    phill (1.0.0)
+    phill (0.1.1)
       activesupport
       awscli
       minitar
