@@ -16,6 +16,7 @@ class Phill
 
     def process
       locations.each(&:process)
+      AwsClient.upload(locations)
     end
   end
 end

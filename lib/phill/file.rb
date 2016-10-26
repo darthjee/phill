@@ -16,6 +16,14 @@ class Phill::File
     File.open(path, 'w').close
   end
 
+  def compressed_file
+    @compressed_file ||= File.open(compressed_path, 'rb')
+  end
+
+  def compressed_name
+    @compressed_name ||= compressed_path.gsub(/.*\//, '')
+  end
+
   private
 
   def compress
