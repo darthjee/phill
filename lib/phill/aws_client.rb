@@ -1,5 +1,5 @@
 require 'recursive-open-struct'
-require 'aws-sdk'
+require 'awscli'
 
 class Phill::AwsClient
   class << self
