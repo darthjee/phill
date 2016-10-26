@@ -10,8 +10,8 @@ class Phill::AwsClient
         location.files.each do |file|
           client.put_object(
             bucket: location.bucket,
-            key: file.compressed_name,
-            body: file.compressed_file
+            key: [ location.aws_folder, file.compressed_name ].join('/').gsub(/^\/*/,''),
+            body: file.compressed_file,
             )
         end
       end
