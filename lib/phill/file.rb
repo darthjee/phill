@@ -31,7 +31,7 @@ class Phill::File
   end
 
   def compressed_path
-    @compressed_path ||= "#{path}-#{date_string}.tar.gz"
+    @compressed_path ||= "#{path}.#{date_string}.tar.gz"
   end
 
   def date_string
