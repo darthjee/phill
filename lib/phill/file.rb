@@ -1,5 +1,6 @@
 require 'zlib'
 require 'archive/tar/minitar'
+require 'time'
 
 class Phill::File
   include Archive::Tar
@@ -10,14 +11,31 @@ class Phill::File
     @path = path
   end
 
-  def compress
-    Minitar.pack(path, gzip_file)
+  def process
+    compress
+    File.open(path, 'w').close
+  end
+
+  def compressed_file
+    @compressed_file ||= File.open(compressed_path, 'rb')
+  end
+
+  def compressed_name
+    @compressed_name ||= compressed_path.gsub(/.*\//, '')
   end
 
   private
 
+  def compress
+    Minitar.pack(path, gzip_file)
+  end
+
   def compressed_path
-    @zip_name ||= "#{path}.tar.gz"
+    @compressed_path ||= "#{path}.#{date_string}.tar.gz"
+  end
+
+  def date_string
+    @date_string ||= Time.now.strftime '%Y%m%d'
   end
 
   def gzip_file

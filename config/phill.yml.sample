@@ -1,8 +1,11 @@
 locations:
-  /aws_folder1/:
-    - /path1
-    - /path2
-  /aws_folder2/:
-    - /path3
-    - /path4
-    
+  - aws_folder: /aws_folder1/
+    bucket: bucket
+    files:
+      - /path1
+      - /path2
+  - aws_folder: /aws_folder2/
+    bucket: bucket
+    files:
+      - /path3
+      - /path4

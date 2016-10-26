@@ -13,6 +13,11 @@ class Phill
     def locations
       @locations ||= config.locations.map { |l|  Location.new(l) }
     end
+
+    def process
+      locations.each(&:process)
+      AwsClient.upload(locations)
+    end
   end
 end
 
